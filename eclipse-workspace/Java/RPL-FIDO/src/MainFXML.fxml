@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<!--  AUTOGEN BY SceneBuilder  -->
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1500.0" styleClass="root" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.MainController">
+   <children>
+      <Label layoutX="436.0" layoutY="33.0" styleClass="title-label-white" text="Rocket Propulsion Lab" />
+      <LineChart fx:id="AltitudeChart" layoutY="97.0" prefHeight="196.0" prefWidth="318.0" title="Altitude">
+        <xAxis>
+          <CategoryAxis fx:id="altitudeX" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="altitudeY" side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <LineChart fx:id="VelocityChart" layoutX="-2.0" layoutY="303.0" prefHeight="184.0" prefWidth="319.0" title="Velocity">
+        <xAxis>
+          <CategoryAxis fx:id="velocictyX" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="velocityY" side="LEFT" />
+        </yAxis>
+      </LineChart>
+   </children>
+</AnchorPane>
