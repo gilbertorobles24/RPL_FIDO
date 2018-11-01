@@ -1,13 +1,20 @@
 package app;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.net.MalformedURLException;
+import com.fazecast.jSerialComm.SerialPort;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ComboBox;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 
 public class MainController implements Initializable{
        //this file basically takes widget objects from the FXML file and allows                                                                                                                                                              you to create methods to make them interactive
@@ -32,6 +39,12 @@ public class MainController implements Initializable{
 
        @FXML
        private NumberAxis velocityY;
+       
+       @FXML
+       private WebView webView;
+       
+//       @FXML
+//       private ComboBox<String> portList;
 
 
        public void initialize(URL url, ResourceBundle rb) {
@@ -58,10 +71,30 @@ public class MainController implements Initializable{
            velocitySeries.getData().add(new XYChart.Data<>("9", 0));
 
            VelocityChart.getData().add(velocitySeries);
+       
+  
+//           WebEngine engine = webView.getEngine();
+//           File file = new File(“./eclipse-workspace/Java/RPL-FIDO/src/MapView.html”);
+//           try {
+//               URL fileUrl = file.toURI().toURL();
+//               engine.load(fileUrl.toString());
+//           } catch (Exception e) {
+//               System.out.print(e);
+//           }
+           
+           
+           //create a combobox that displays the available ports on the computer
+           ComboBox<String> portList = new ComboBox<String>();
+           
+           //get ports from system
+           SerialPort [] portNames = SerialPort.getCommPorts();
+           //loop through all the ports from the system and display them on the screen
+           for (int i = 0; i < portNames.length; i++) {
+        	   portList.getItems().add(portNames[i].getSystemPortName().toString());
+        	   
+        	   System.out.println(portNames[i].getSystemPortName().toString());
+           }
+           
+           
        }
 }
-
-
-
-
-
